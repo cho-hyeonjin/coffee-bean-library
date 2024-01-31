@@ -11,17 +11,16 @@ import AllProducts from "./routes/AllProducts";
 const router = createBrowserRouter([
   // 3. 레지스트리에 첫번째 루트 객체를 등록한다.
   {
-    // 이 레지스트리 객체에서는 root 경로("/")에 <Root /> 컴포넌트가 보여지게 매핑한다.
-    path: "/",
-    //
-    element: <Root />,
-    // 루트 경로 오류 발생 시 <ErrorPage /> 컴포넌트가 보여지게 매핑
-    errorElement: <ErrorPage />,
-  },
-  // 4. 레지스트리의 두번째 루트 객체로 '전체 상품' View 컴포넌트를 등록해준다.
-  {
-    path: "/AllProducts", // 루트 경로를 설정해주고
-    element: <AllProducts />, // 엘리먼트로 AllProducts 컴포넌트를 설정해준다.
+    path: "/", // root 경로("/")에서
+    element: <Root />, // <Root /> 컴포넌트가 보여지게 매핑
+    errorElement: <ErrorPage />, // 루트 경로 오류 발생 시 <ErrorPage /> 컴포넌트가 보여지게 매핑
+    // 4. children 속성을 이용하여 중첩 경로로 '전체 상품' View 컴포넌트를 root 경로 하위 경로에 등록해준다.
+    children: [
+      {
+        path: "AllProducts",
+        element: <AllProducts />,
+      },
+    ],
   },
 ]);
 
