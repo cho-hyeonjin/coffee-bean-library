@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 // 1. react-router-dom에서 createBrowserRouter 메서드와 RootProvider를 import해주고
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/Root";
+import Root from "./routes/root";
 import ErrorPage from "./routes/ErrorPage";
 import AllProducts from "./routes/AllProducts";
 

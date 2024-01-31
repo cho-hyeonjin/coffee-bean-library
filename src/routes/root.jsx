@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+
 export default function Root() {
   return (
     <>
@@ -16,6 +18,11 @@ export default function Root() {
             </li>
           </ul>
         </nav>
+        {/* 하위 경로로 설정한 컴포넌트를 보여줄 html 위치에 Outlet 컴포넌트를 배치한다.*/}
+        {/* Outlet 컴포넌트는 root 경로 하위 경로에 설정한 컴포넌트를 렌더링 할 위치를 알려주는 React Router 제공 컴포넌트  */}
+        <div id="detail">
+          <Outlet />
+        </div>
       </div>
     </>
   );
