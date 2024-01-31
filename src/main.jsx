@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 // 1. react-router-dom에서 createBrowserRouter 메서드와 RootProvider를 import해주고
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Root from "./routes/root";
+import Root from "./routes/Root";
+import ErrorPage from "./routes/ErrorPage";
 
 // 2. createBrowserRouter 메서드의 파라미터로 route 객체를 담은 배열을 전달해서 router를 생성해준다.
 const router = createBrowserRouter([
@@ -13,6 +14,8 @@ const router = createBrowserRouter([
     path: "/",
     //
     element: <Root />,
+    // 루트 경로 오류 발생 시 <ErrorPage /> 컴포넌트가 보여지게 매핑
+    errorElement: <ErrorPage />,
   },
 ]);
 
