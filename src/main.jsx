@@ -21,6 +21,8 @@ const router = createBrowserRouter([
     // 4. children 속성을 이용하여 중첩 경로로 '전체 상품' View 컴포넌트를 root 경로 하위 경로에 등록해준다.
     children: [
       {
+        // 5. Index Route로 Home 컴포넌트를 설정하였다.
+        index: "true",
         path: "/",
         element: <Home />,
       },
