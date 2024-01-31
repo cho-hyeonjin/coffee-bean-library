@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export default function Root() {
   return (
@@ -8,13 +8,13 @@ export default function Root() {
         <nav>
           <ul>
             <li>
-              <a href={`/AllProducts`}>전체 상품</a>
+              <Link to={`/AllProducts`}>전체 상품</Link>
             </li>
             <li>
-              <a href={`/RecommendProducts`}>추천 상품</a>
+              <Link to={`/RecommendProducts`}>추천 상품</Link>
             </li>
             <li>
-              <a href={`/Cart`}>장바구니</a>
+              <Link to={`/Cart`}>장바구니</Link>
             </li>
           </ul>
         </nav>
