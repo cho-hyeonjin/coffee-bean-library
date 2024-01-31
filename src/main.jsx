@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import ErrorPage from "./routes/ErrorPage";
+import AllProducts from "./routes/AllProducts";
 
 // 2. createBrowserRouter 메서드의 파라미터로 route 객체를 담은 배열을 전달해서 router를 생성해준다.
 const router = createBrowserRouter([
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
     element: <Root />,
     // 루트 경로 오류 발생 시 <ErrorPage /> 컴포넌트가 보여지게 매핑
     errorElement: <ErrorPage />,
+  },
+  // 4. 레지스트리의 두번째 루트 객체로 '전체 상품' View 컴포넌트를 등록해준다.
+  {
+    path: "/AllProducts", // 루트 경로를 설정해주고
+    element: <AllProducts />, // 엘리먼트로 AllProducts 컴포넌트를 설정해준다.
   },
 ]);
 
