@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
-      <header>
+      <header className="flex justify-between">
         <Link to="/">
           <h1>커피빈샵(🧭네비게이션바)</h1>
         </Link>
