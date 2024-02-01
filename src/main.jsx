@@ -6,9 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import AllProducts from "./pages/AllProducts";
 import RecommendProducts from "./pages/RecommendProducts";
+import BrandProducts from "./pages/BrandProducts";
 import ProductDetail from "./pages/ProductDetail";
+import SignIn from "./pages/SignIn";
 import Cart from "./pages/Cart";
 
 // 2. createBrowserRouter 메서드의 파라미터로 route 객체를 담은 배열을 전달해서 router를 생성해준다.
@@ -27,6 +30,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/about",
+        element: <About />,
+      },
+      {
         path: "/products",
         element: <AllProducts />,
       },
@@ -35,8 +42,16 @@ const router = createBrowserRouter([
         element: <RecommendProducts />,
       },
       {
+        path: "/products/brand",
+        element: <BrandProducts />,
+      },
+      {
         path: "/products/:id",
         element: <ProductDetail />,
+      },
+      {
+        path: "/signin",
+        element: <SignIn />,
       },
       {
         path: "/cart",
