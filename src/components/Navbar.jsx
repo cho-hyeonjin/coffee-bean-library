@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { signin, signout } from "../api/firebase";
+import { logIn, logOut, onUserStateChange } from "../api/firebase";
 
 export default function Navbar() {
   const [user, setUser] = useState();
-  const handleSignIn = () => {
-    signin().then(setUser);
-  };
-  const handleSignOut = () => {
-    signout().then(setUser);
-  };
+
+  useEffect(() => {
+    onUserStateChange(setUser);
+  }, []);
+
   return (
     <>
       <header className="flex justify-between border-b border-gray-300 py-4 px-10">
@@ -27,9 +26,8 @@ export default function Navbar() {
         </nav>
         <nav className="flex align-center items-center gap-6 text-xs">
           <button>🔍</button>
-          {!user && <button onClick={handleSignIn}>로그인</button>}
-          {user && <button onClick={handleSignOut}>로그아웃</button>}
-          {/* <Link to="/signin">로그인</Link> */}
+          {!user && <button onClick={logIn}>로그인</button>}
+          {user && <button onClick={logOut}>로그아웃</button>}
           <Link to="/cart" className="flex">
             <div>장바구니</div>
             <div className="rounded-full bg-black text-white px-1 mx-1">0</div>
