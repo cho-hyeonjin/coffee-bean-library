@@ -6,8 +6,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import AllProducts from "./pages/AllProducts";
 import RecommendProducts from "./pages/RecommendProducts";
+import BrandProducts from "./pages/BrandProducts";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 
@@ -27,12 +29,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/about",
+        element: <About />,
+      },
+      {
         path: "/products",
         element: <AllProducts />,
       },
       {
         path: "/products/recommend",
         element: <RecommendProducts />,
+      },
+      {
+        path: "/products/brand",
+        element: <BrandProducts />,
       },
       {
         path: "/products/:id",

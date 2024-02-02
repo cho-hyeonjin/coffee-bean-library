@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+# 모든 상황에서 사용될 환경 변수
+.env                
+# 모든 상황에서 사용되나, 로컬 개발 환경에서만 사용될(Git에 의해 무시될) 환경 변수
+.env.local          
+# 특정 모드에서만 사용될 환경 변수
+.env.[mode]         
+# 특정 모드에서만 사용되나, 로컬 개발 환경에서만 사용될(Git에 의해 무시될) 환경 변수
+.env.[mode].local   
