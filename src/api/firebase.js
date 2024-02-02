@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_COFFEE_BEAN_LIBRARY_FIREBASE_API_KEY,
@@ -12,13 +17,16 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export function signin() {
-  signInWithPopup(auth, provider)
+export async function signin() {
+  return signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
       console.log(user);
+      return user;
     })
-    .catch((error) => {
-      console.error(error);
-    });
+    .catch(console.error);
+}
+
+export async function signout() {
+  return signOut(auth).then(() => null);
 }
