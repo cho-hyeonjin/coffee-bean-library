@@ -11,7 +11,6 @@ import AllProducts from "./pages/AllProducts";
 import RecommendProducts from "./pages/RecommendProducts";
 import BrandProducts from "./pages/BrandProducts";
 import ProductDetail from "./pages/ProductDetail";
-import SignIn from "./pages/SignIn";
 import Cart from "./pages/Cart";
 
 // 2. createBrowserRouter 메서드의 파라미터로 route 객체를 담은 배열을 전달해서 router를 생성해준다.
@@ -48,10 +47,6 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductDetail />,
-      },
-      {
-        path: "/signin",
-        element: <SignIn />,
       },
       {
         path: "/cart",
