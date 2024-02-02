@@ -10,7 +10,7 @@ export default function Navbar() {
         >
           <h1>Coffee Bean Library</h1>
         </Link>
-        <nav className="flex align-center items-center gap-12 text-sm">
+        <nav className="flex align-center items-center gap-16 text-sm">
           <Link to="/about">사서 소개</Link>
           <Link to="/products">전체 상품</Link>
           <Link to="/products/recommend">추천 상품</Link>
