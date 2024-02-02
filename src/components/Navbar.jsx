@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { logIn, logOut, onUserStateChange } from "../api/firebase";
+import User from "./User";
 
 export default function Navbar() {
   const [user, setUser] = useState();
@@ -24,10 +25,13 @@ export default function Navbar() {
           <Link to="/products/recommend">추천 상품</Link>
           <Link to="/products/brand">브랜드별 상품</Link>
         </nav>
-        <nav className="flex align-center items-center gap-6 text-xs">
+        <nav className="flex align-center items-center gap-4 text-xs">
           <button>🔍</button>
-          {!user && <button onClick={logIn}>로그인</button>}
-          {user && <button onClick={logOut}>로그아웃</button>}
+          <div className="flex align-center items-center gap-2">
+            {!user && <button onClick={logIn}>로그인</button>}
+            {user && <User user={user} />}
+            {user && <button onClick={logOut}>로그아웃</button>}
+          </div>
           <Link to="/cart" className="flex">
             <div>장바구니</div>
             <div className="rounded-full bg-black text-white px-1 mx-1">0</div>
