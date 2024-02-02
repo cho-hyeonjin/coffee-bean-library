@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import { getDatabase, ref, get } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_COFFEE_BEAN_LIBRARY_FIREBASE_API_KEY,
@@ -17,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
+const database = getDatabase(app);
 
 export function logIn() {
   signInWithPopup(auth, provider).catch(console.error);
@@ -27,7 +29,23 @@ export function logOut() {
 }
 
 export function onUserStateChange(callback) {
-  onAuthStateChanged(auth, (user) => {
-    callback(user);
+  onAuthStateChanged(auth, async (user) => {
+    // 1. 사용자가 있는 경우 (로그인 된 경우)
+    const updatedUser = user ? await adminUser(user) : null;
+    callback(updatedUser); // Navbar에서 setUser 콜백으로 전달하고 확인해보기
   });
+}
+
+async function adminUser(user) {
+  // 2. 사용자가 admin 권한 가지고 있는지 확인하기
+  // 3. {...user, isAdmin: true/false}
+  return get(ref(database, "admins")) //
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const admins = snapshot.val();
+        const isAdmin = admins.includes(user.uid);
+        return { ...user, isAdmin };
+      }
+      return user;
+    });
 }
