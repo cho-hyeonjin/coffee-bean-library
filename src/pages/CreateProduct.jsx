@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../components/ui/Button";
+import { uploadImage } from "../api/uploader";
 
 export default function CreateProduct() {
   const [product, setProduct] = useState({});
@@ -16,12 +17,15 @@ export default function CreateProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // 1. 제품 사진 Cloudinary에 업로드 하고 URL 획득
-    // 2. Firebase에 해당 상품 추가
+    uploadImage(file).then((url) => {
+      console.log(url);
+      // 2. Firebase에 해당 상품 추가
+    });
   };
 
   return (
     <>
-      <section>
+      <section className="flex">
         {file && (
           <img
             src={URL.createObjectURL(file)}
@@ -29,7 +33,10 @@ export default function CreateProduct() {
             className="w-6/12"
           />
         )}
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-around pl-10"
+        >
           <input
             type="file"
             accept="image/*"
