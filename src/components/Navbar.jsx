@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { logIn, logOut, onUserStateChange } from "../api/firebase";
 import User from "./User";
 import Button from "./ui/Button";
 import { useAuthContext } from "./context/AuthContext";
 
 export default function Navbar() {
-  // const [user, setUser] = useState();
-
-  // useEffect(() => {
-  //   onUserStateChange((user) => {
-  //     console.log(user);
-  //     setUser(user);
-  //   });
-  // }, []);
-
   const { user, logIn, logOut } = useAuthContext();
   return (
     <>
