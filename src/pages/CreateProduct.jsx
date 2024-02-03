@@ -6,6 +6,8 @@ import { addNewProduct } from "../api/firebase";
 export default function CreateProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
+  const [isUploading, setIsUploading] = useState(false);
+  const [success, setSuccess] = useState();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -17,17 +19,30 @@ export default function CreateProduct() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsUploading(true);
     // 1. 제품 사진 Cloudinary에 업로드 하고 URL 획득
-    uploadImage(file).then((url) => {
-      console.log(url, "url");
-      // 2. Firebase에 해당 상품 추가
-      addNewProduct(product, url);
-    });
+    uploadImage(file) //
+      .then((url) => {
+        console.log(url, "url");
+        // 2. Firebase에 해당 상품 추가
+        addNewProduct(product, url) //
+          .then(() => {
+            setSuccess("게시 성공!");
+            setTimeout(() => {
+              setSuccess(null);
+            }, 4000);
+          });
+      })
+      .finally(() => setIsUploading(false));
   };
 
   return (
     <>
-      <section className="flex">
+      <header className="flex flex-col justify-center align-middle p-8">
+        <div className="font-bold self-center m-2">새로운 제품 등록</div>
+        {success && <div className="self-center">✅{success}</div>}
+      </header>
+      <section className="flex justify-center">
         {file && (
           <img
             src={URL.createObjectURL(file)}
@@ -87,7 +102,11 @@ export default function CreateProduct() {
             required
             onChange={handleChange}
           />
-          <Button text={"게시물 등록"} />
+          <Button
+            text={isUploading ? "게시중..." : "게시하기"}
+            disabled={isUploading}
+            tailwindcss={"bg-black text-white p-4"}
+          />
         </form>
       </section>
     </>
