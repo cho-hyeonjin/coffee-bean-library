@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         path: "/products/create",
         element: (
           <ProtectedRoute requireAdmin>
-            <CreateProduct />,
+            <CreateProduct />
           </ProtectedRoute>
         ),
       },
