@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { v4 as uuid } from "uuid";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -6,7 +7,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, get, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_COFFEE_BEAN_LIBRARY_FIREBASE_API_KEY,
@@ -48,4 +49,16 @@ async function adminUser(user) {
       }
       return user;
     });
+}
+
+export async function addNewProduct(product, imageUrl) {
+  console.log(imageUrl);
+  const id = uuid();
+  return set(ref(database, `products/${id}`), {
+    ...product,
+    id,
+    price: parseInt(product.price),
+    image: imageUrl,
+    options: product.options.split(","),
+  });
 }
