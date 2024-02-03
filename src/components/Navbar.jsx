@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 import { logIn, logOut, onUserStateChange } from "../api/firebase";
 import User from "./User";
 import Button from "./ui/Button";
+import { useAuthContext } from "./context/AuthContext";
 
 export default function Navbar() {
-  const [user, setUser] = useState();
+  // const [user, setUser] = useState();
 
-  useEffect(() => {
-    onUserStateChange((user) => {
-      console.log(user);
-      setUser(user);
-    });
-  }, []);
+  // useEffect(() => {
+  //   onUserStateChange((user) => {
+  //     console.log(user);
+  //     setUser(user);
+  //   });
+  // }, []);
 
+  const { user, logIn, logOut } = useAuthContext();
   return (
     <>
       <header className="flex justify-between border-b border-gray-300 py-4 px-10">

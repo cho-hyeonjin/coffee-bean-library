@@ -13,6 +13,7 @@ import BrandProducts from "./pages/BrandProducts";
 import ProductDetail from "./pages/ProductDetail";
 import CreateProduct from "./pages/CreateProduct";
 import Cart from "./pages/Cart";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 // 2. createBrowserRouter 메서드의 파라미터로 route 객체를 담은 배열을 전달해서 router를 생성해준다.
 const router = createBrowserRouter([
@@ -51,11 +52,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/products/create",
-        element: <CreateProduct />,
+        element: (
+          <ProtectedRoute requireAdmin>
+            <CreateProduct />,
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
