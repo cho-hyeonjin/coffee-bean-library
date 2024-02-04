@@ -30,7 +30,7 @@ export default function CreateProduct() {
             setSuccess("게시 성공!");
             setTimeout(() => {
               setSuccess(null);
-            }, 4000);
+            }, 3000);
           });
       })
       .finally(() => setIsUploading(false));
@@ -42,66 +42,103 @@ export default function CreateProduct() {
         <div className="font-bold self-center m-2">새로운 제품 등록</div>
         {success && <div className="self-center">✅{success}</div>}
       </header>
-      <section className="flex justify-center">
-        {file && (
+      <section className="flex justify-center text-sm">
+        {file ? (
           <img
             src={URL.createObjectURL(file)}
             alt="local file"
             className="w-6/12"
           />
+        ) : (
+          <div className="w-6/12 bg-zinc-200 flex justify-center items-center h-96">
+            제품 이미지 첨부
+          </div>
         )}
         <form
           onSubmit={handleSubmit}
           className="flex flex-col justify-around pl-10"
         >
-          <input
-            type="file"
-            accept="image/*"
-            name="file"
-            required
-            onChange={handleChange}
-          />
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">제품 이미지</div>
+            <input
+              type="file"
+              accept="image/*"
+              name="file"
+              required
+              onChange={handleChange}
+            />
+          </div>
           {/* 아래 input에서는 Nullish Coalescing(병합) 연산자로 왼쪽이 null이나 undefined인 경우에만 우항을 반환하는 원리를 이용하여 value 값을 설정해봤다. */}
-          <input
-            type="text"
-            name="title"
-            value={product.title ?? ""}
-            placeholder="상품명"
-            required
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            name="price"
-            value={product.price ?? ""}
-            placeholder="가격"
-            required
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="category"
-            value={product.category ?? ""}
-            placeholder="카테고리"
-            required
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="description"
-            value={product.description ?? ""}
-            placeholder="상품 설명"
-            required
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="options"
-            value={product.options ?? ""}
-            placeholder="옵션들(콤마,로 구분)"
-            required
-            onChange={handleChange}
-          />
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">브랜드명</div>
+            <input
+              type="text"
+              name="brandName"
+              value={product.brandName ?? ""}
+              placeholder="브랜드명 입력"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20  text-black font-bold">제품명</div>
+            <input
+              className="w-80"
+              type="text"
+              name="productName"
+              value={product.productName ?? ""}
+              placeholder="제품명 입력"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">원두 종류</div>
+            <input
+              type="radio"
+              name="blendType"
+              value={product.blendType ?? "싱글오리진"}
+              required
+              onChange={handleChange}
+              id="singleOrigin"
+            />
+            <label htmlFor="singleOrigin" className="mr-1">
+              싱글오리진
+            </label>
+            <input
+              type="radio"
+              name="blendType"
+              value={product.blendType ?? "블렌드"}
+              required
+              onChange={handleChange}
+              id="blended"
+            />
+            <label htmlFor="blended">블렌드</label>
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">가격</div>
+            <input
+              type="number"
+              name="price"
+              value={product.price ?? ""}
+              placeholder="가격 입력"
+              required
+              onChange={handleChange}
+            />
+            원
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">제품 설명</div>
+            <input
+              type="text"
+              name="description"
+              value={product.description ?? ""}
+              placeholder="제품 설명 입력"
+              required
+              onChange={handleChange}
+              className="w-80"
+            />
+          </div>
           <Button
             text={isUploading ? "게시중..." : "게시하기"}
             disabled={isUploading}
