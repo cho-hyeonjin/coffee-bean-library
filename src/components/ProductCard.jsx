@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function ProductCard({
+  product,
   product: {
     image,
     brandName,
@@ -7,11 +10,18 @@ export default function ProductCard({
     price,
     options,
     description,
+    id,
   },
 }) {
+  const navigate = useNavigate();
+
   return (
     <>
-      <div>
+      <div
+        onClick={() => {
+          navigate(`/products/${id}`, { state: { product } });
+        }}
+      >
         <li className="pl-2 pb-2 hover:cursor-pointer hover:shadow-md hover:shadow-zinc-500 hover:brightness-125 hover:duration-700">
           <img className="w-full" src={image} alt={productName} />
           <div className="mt-3">
