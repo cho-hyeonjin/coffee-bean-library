@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import User from "./User";
+// import User from "./User";
 import Button from "./ui/Button";
 import { useAuthContext } from "./context/AuthContext";
 
@@ -27,12 +27,12 @@ export default function Navbar() {
           )}
           <div className="flex align-center items-center gap-2 shrink-0">
             {!user && <Button text={"로그인"} onClick={logIn} />}
-            {user && <User user={user} />}
+            {/* {user && <User user={user} />} */}
             {user && <Button text={"로그아웃"} onClick={logOut} />}
           </div>
           {user && (
             <Link to="/cart" className="flex">
-              <Button text={"나의 관심 원두"} />
+              <Button text={"나의 원두 서재"} />
               <div className="rounded-full bg-black text-white px-1 mx-1">
                 0
               </div>
