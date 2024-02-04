@@ -76,6 +76,7 @@ export default function CreateProduct() {
               name="brandName"
               value={product.brandName ?? ""}
               placeholder="브랜드명 입력"
+              className="w-80"
               required
               onChange={handleChange}
             />
@@ -126,6 +127,18 @@ export default function CreateProduct() {
               onChange={handleChange}
             />
             원
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">옵션</div>
+            <input
+              type="text"
+              name="options"
+              value={product.options ?? ""}
+              placeholder="옵션을 ', '로 구분하여 입력"
+              required
+              onChange={handleChange}
+              className="w-80"
+            />
           </div>
           <div className="flex gap-1">
             <div className="w-20 text-black font-bold">제품 설명</div>
