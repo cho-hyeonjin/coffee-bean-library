@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import Button from "../components/ui/Button";
+import { useAuthContext } from "../context/AuthContext";
+import { createOrUpdateToCart } from "../api/firebase";
 
 export default function ProductDetail() {
   const {
@@ -17,9 +19,11 @@ export default function ProductDetail() {
     },
   } = useLocation();
 
+  const { uid } = useAuthContext();
+
   const handleAddCart = (e) => {
-    // 서재(장바구니)에 추가 로직 - Firebase DB CRUD - 구현
-    console.log(e, "'내 서재에 담기' 버튼 클릭 이벤트 발생!");
+    const product = { id, brandName, productName, price, image, blendType };
+    createOrUpdateToCart(uid, product);
   };
 
   const handelGoToBrand = (e) => {
