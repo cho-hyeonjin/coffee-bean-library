@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { logIn, logOut, onUserStateChange } from "../../api/firebase";
+import { logIn, logOut, onUserStateChange } from "../api/firebase";
 
 const AuthContext = createContext();
 
@@ -14,7 +14,9 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, logIn, logOut }}>
+    <AuthContext.Provider
+      value={{ user, uid: user && user.uid, logIn, logOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
