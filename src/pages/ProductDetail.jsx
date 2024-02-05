@@ -27,8 +27,9 @@ export default function ProductDetail() {
     createOrUpdateToCart(uid, product);
   };
 
-  const handelGoToBrand = (e) => {
-    console.log(e, "'구매 사이트로 이동' 버튼 클릭 이벤트 발생!");
+  const handleLinkToBuy = (e) => {
+    const buyLink = { buyURL };
+    console.log(buyLink, "'구매 사이트로 이동' 버튼 클릭 이벤트 발생!");
   };
 
   return (
@@ -45,7 +46,7 @@ export default function ProductDetail() {
             <hr />
             <p className="my-4">{description}</p>
             <hr />
-            <p className="my-4">원두 타입: {blendType}</p>
+            <p className="my-4">원두 타입 | {blendType}</p>
             <hr />
             <div className="my-4">
               {/* {options ??
@@ -69,7 +70,7 @@ export default function ProductDetail() {
                 tailwindcss={
                   "bg-black text-white  px-4 py-2 hover:font-extrabold"
                 }
-                onClick={handelGoToBrand}
+                onClick={handleLinkToBuy}
               />
             </div>
           </div>

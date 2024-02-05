@@ -22,7 +22,7 @@ export default function ProductCard({
           navigate(`/products/${id}`, { state: { product } });
         }}
       >
-        <li className="pl-2 pb-2 hover:cursor-pointer hover:shadow-md hover:shadow-zinc-500 hover:brightness-125 hover:duration-700">
+        <li className="pl-2 pb-2 hover:cursor-pointer hover:shadow-md hover:shadow-zinc-500 hover:brightness-105 hover:duration-700">
           <img className="w-full" src={imageURL} alt={productName} />
           <div className="mt-3">
             <h3 className="text-base font-bold xl:text-lg 2xl:text-xl">

@@ -16,9 +16,9 @@ export default function Navbar() {
           <h1>Coffee Bean Library</h1>
         </Link>
         <nav className="flex align-center items-center gap-16 ml-20 text-sm shrink-0">
-          <Link to="/about">소개</Link>
+          {/* <Link to="/about">소개</Link> */}
           <Link to="/products">전체 원두</Link>
-          <Link to="/products/recommend">추천 원두</Link>
+          {/* <Link to="/products/recommend">추천 원두</Link> */}
           {/* <Link to="/products/brand">브랜드별 원두</Link> */}
         </nav>
         <nav className="flex align-center items-center gap-4 ml-20 text-sm shrink-0">

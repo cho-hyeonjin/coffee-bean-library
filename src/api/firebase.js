@@ -81,7 +81,7 @@ export async function addNewProduct(product, imageURL) {
     id: newProductRef.key,
     price: parseInt(product.price),
     imageURL: imageURL,
-    options: product.options.split(", "),
+    options: product.options.split("#"),
     buyURL: product.buyURL,
     timestamp: serverTimestamp(), // 서버 타임스탬프 사용
   });
