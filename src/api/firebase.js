@@ -52,7 +52,6 @@ async function adminUser(user) {
 }
 
 export async function addNewProduct(product, imageUrl) {
-  console.log(product);
   const id = uuid();
   return set(ref(database, `products/${id}`), {
     ...product,
@@ -76,10 +75,7 @@ export async function getProducts() {
 export async function getCart(userId) {
   return get(ref(database, `carts/${userId}`)) //
     .then((snapshot) => {
-      console.log(snapshot, "스냅샷");
-      console.log(snapshot.val, "스냅샷.val");
       const items = snapshot.val() || {};
-      console.log(Object.values(items), "Object.values(item)");
       return Object.values(items);
     });
 }

@@ -23,7 +23,6 @@ export default function CreateProduct() {
     // 1. 제품 사진 Cloudinary에 업로드 하고 URL 획득
     uploadImage(file) //
       .then((url) => {
-        console.log(url, "url");
         // 2. Firebase에 해당 상품 추가
         addNewProduct(product, url) //
           .then(() => {
