@@ -19,7 +19,8 @@ export default function Cart() {
     <>
       <section>
         <p>나의 원두 서재</p>
-        {products}
+        {/* ↓ 원인은 여기..(이게 왜 여깄지?ㅋㅋㅠ) 어쨋든 객체를 쌩으로 렌더링하려 해서 생긴 문제임 */}
+        {/* {products} */}
         {!hasProducts && <p>서재에 담아둔 원두가 없습니다.</p>}
         {hasProducts && (
           <>
