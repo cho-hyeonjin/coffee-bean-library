@@ -2,12 +2,21 @@ import { useState } from "react";
 import Button from "../components/ui/Button";
 import { uploadImage } from "../api/uploader";
 import { addNewProduct } from "../api/firebase";
+import { useMutation, useQueryClient } from "react-query";
 
 export default function CreateProduct() {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
   const [isUploading, setIsUploading] = useState(false);
   const [success, setSuccess] = useState();
+  const queryClient = useQueryClient();
+
+  const addProduct = useMutation(
+    ({ product, url }) => addNewProduct(product, url),
+    {
+      onSuccess: () => queryClient.invalidateQueries(["products"]),
+    }
+  );
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -24,15 +33,19 @@ export default function CreateProduct() {
     uploadImage(file) //
       .then((url) => {
         // 2. Firebase에 해당 상품 추가
-        addNewProduct(product, url) //
-          .then(() => {
-            setSuccess("게시 성공!");
-            setTimeout(() => {
-              setSuccess(null);
-              // setFile(null);
-              // setProduct("");
-            }, 3000);
-          });
+        addProduct.mutate(
+          { product, url },
+          {
+            onSuccess: () => {
+              setSuccess("게시 성공!");
+              setTimeout(() => {
+                setSuccess(null);
+                setFile(null);
+                setProduct("");
+              }, 3000);
+            },
+          }
+        );
       })
       .finally(() => setIsUploading(false));
   };

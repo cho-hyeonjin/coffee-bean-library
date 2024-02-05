@@ -12,7 +12,6 @@ export default function Cart() {
 
   const hasProducts = products && products.length > 0;
 
-  console.log(user, "유저정보");
   // blendType 계산
   const blendTypeCounts = products.reduce((acc, product) => {
     acc[product.blendType] = (acc[product.blendType] || 0) + 1;
@@ -34,7 +33,6 @@ export default function Cart() {
   const preferredBrand = Object.keys(brandNameCounts).reduce((a, b) =>
     brandNameCounts[a] > brandNameCounts[b] ? a : b
   );
-  console.log(prefrredBlendType, preferredBrand);
 
   return (
     <>
