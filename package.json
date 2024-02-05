@@ -12,6 +12,8 @@
   "dependencies": {
     "@tanstack/react-query": "^5.18.1",
     "firebase": "^10.8.0",
+    "firebase-tools": "^13.1.0",
+    "global": "^4.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",

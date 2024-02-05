@@ -22,14 +22,13 @@ export default function ProductDetail() {
 
   const { uid } = useAuthContext();
 
-  const handleAddCart = (e) => {
+  const handleAddCart = () => {
     const product = { id, brandName, productName, price, imageURL, blendType };
     createOrUpdateToCart(uid, product);
   };
 
-  const handleLinkToBuy = (e) => {
-    const buyLink = { buyURL };
-    console.log(buyLink, "'구매 사이트로 이동' 버튼 클릭 이벤트 발생!");
+  const handleLinkToBuy = () => {
+    window.open(buyURL, "_blank");
   };
 
   return (
