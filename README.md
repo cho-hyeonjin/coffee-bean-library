@@ -1,4 +1,5 @@
 # [커피빈 라이브러리](https://coffee-bean-library.web.app/)
+↑ 클릭 시 배포 사이트로 이동 ✨
 
 ### 반응형 CSS 적용
 
