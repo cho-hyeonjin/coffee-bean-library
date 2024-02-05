@@ -1,11 +1,16 @@
 # [커피빈 라이브러리](https://coffee-bean-library.web.app/)
-↑ 클릭 시 배포 사이트로 이동 ✨
+ &nbsp;  ↑  타이틀을 클릭해서 배포 사이트를 방문해주세요 ✨
+
+ &nbsp;
 
 ### 반응형 CSS 적용
 
-<img width="1000" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/dc3c77fe-3ed1-42aa-a337-4cc607336342">
-<img width="700" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/da4c087c-1dd8-4c65-be75-abe3903bd803">
-<img width="500" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/d87543c0-797e-4cdf-9236-a1536c7c86bf">
+<img width="100%" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/5a3c7f02-dcc2-4f55-93fa-0ba650681d3a">
+<img width="80%" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/308375f5-cf3f-438f-9361-a95174b5ae41">
+<img width="70%" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/f648608d-a0ae-4ad3-841b-a3cc81e2bc79">
+<img width="30%" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/e11ab604-a964-4942-a613-5fa71295dd88">
+<img width="40%" src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/824c084f-30e1-49e8-afc6-3fa5d44ad36d">
+
 
 
 ### Admin 권한이 있는 유저만 접근할 수 있는 게시물 등록 페이지
