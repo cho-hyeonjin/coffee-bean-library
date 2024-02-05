@@ -29,6 +29,8 @@ export default function CreateProduct() {
             setSuccess("게시 성공!");
             setTimeout(() => {
               setSuccess(null);
+              // setFile(null);
+              // setProduct("");
             }, 3000);
           });
       })
@@ -133,7 +135,7 @@ export default function CreateProduct() {
               type="text"
               name="options"
               value={product.options ?? ""}
-              placeholder="옵션을 ', '로 구분하여 입력"
+              placeholder="#으로 구분하여 입력 (예: 옵션1#옵션2#옵션3) "
               required
               onChange={handleChange}
               className="w-80"
@@ -146,6 +148,30 @@ export default function CreateProduct() {
               name="description"
               value={product.description ?? ""}
               placeholder="제품 설명 입력"
+              required
+              onChange={handleChange}
+              className="w-80"
+            />
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">추가 설명</div>
+            <input
+              type="text"
+              name="descriptionOption"
+              value={product.descriptionOption ?? ""}
+              placeholder="추가 제품 설명 입력 "
+              required
+              onChange={handleChange}
+              className="w-80"
+            />
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">구매 링크</div>
+            <input
+              type="text"
+              name="buyURL"
+              value={product.buyURL ?? ""}
+              placeholder="구매 링크 URL"
               required
               onChange={handleChange}
               className="w-80"
