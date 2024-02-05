@@ -16,12 +16,12 @@ export default function Navbar() {
           <h1>Coffee Bean Library</h1>
         </Link>
         <nav className="flex align-center items-center gap-16 ml-20 text-sm shrink-0">
-          <Link to="/about">사서 소개</Link>
+          <Link to="/about">소개</Link>
           <Link to="/products">전체 원두</Link>
-          <Link to="/products/recommend">이달의 추천 원두</Link>
-          <Link to="/products/brand">브랜드별 원두</Link>
+          <Link to="/products/recommend">추천 원두</Link>
+          {/* <Link to="/products/brand">브랜드별 원두</Link> */}
         </nav>
-        <nav className="flex align-center items-center gap-4 ml-20 text-xs shrink-0">
+        <nav className="flex align-center items-center gap-4 ml-20 text-sm shrink-0">
           {user && user.isAdmin && (
             <Link to="/products/create">게시물 생성</Link>
           )}

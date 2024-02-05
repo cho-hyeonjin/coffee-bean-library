@@ -7,13 +7,14 @@ export default function ProductDetail() {
   const {
     state: {
       product: {
-        image,
+        imageURL,
         brandName,
         productName,
         blendType,
         price,
         options,
         description,
+        buyURL,
         id,
       },
     },
@@ -22,7 +23,7 @@ export default function ProductDetail() {
   const { uid } = useAuthContext();
 
   const handleAddCart = (e) => {
-    const product = { id, brandName, productName, price, image, blendType };
+    const product = { id, brandName, productName, price, imageURL, blendType };
     createOrUpdateToCart(uid, product);
   };
 
@@ -34,7 +35,7 @@ export default function ProductDetail() {
     <>
       <div className="py-20 px-10 md:px-20 lg:px-40 2xl:px-60">
         <section className="grid grid-cols-1 gap-5 xl:grid-cols-2 justify-center items-center">
-          <img src={image} alt={productName} className="flex-none" />
+          <img src={imageURL} alt={productName} className="flex-none" />
           <div className="lg:mx-16 lg:text-lg">
             <p className="font-bold my-4">{brandName}</p>
             <p className="font-bold my-4">{productName}</p>

@@ -29,6 +29,8 @@ export default function CreateProduct() {
             setSuccess("게시 성공!");
             setTimeout(() => {
               setSuccess(null);
+              setFile(null);
+              setProduct("");
             }, 3000);
           });
       })
@@ -146,6 +148,18 @@ export default function CreateProduct() {
               name="description"
               value={product.description ?? ""}
               placeholder="제품 설명 입력"
+              required
+              onChange={handleChange}
+              className="w-80"
+            />
+          </div>
+          <div className="flex gap-1">
+            <div className="w-20 text-black font-bold">구매 링크</div>
+            <input
+              type="text"
+              name="buyURL"
+              value={product.buyURL ?? ""}
+              placeholder="구매 링크 URL"
               required
               onChange={handleChange}
               className="w-80"
