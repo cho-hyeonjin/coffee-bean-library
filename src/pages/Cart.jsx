@@ -1,7 +1,32 @@
+import { useQuery } from "react-query";
+import { useAuthContext } from "../context/AuthContext";
+import { getCart } from "../api/firebase";
+import CartItem from "../components/CartItem";
+
 export default function Cart() {
+  const { uid } = useAuthContext();
+  const { isLoading, data: products } = useQuery(["carts"], () => getCart(uid));
+
+  if (isLoading) return <p>로딩 중...</p>;
+
+  const hasProducts = products && products.length > 0;
+
   return (
     <>
-      <h1>🛒 장바구니 페이지</h1>
+      <section>
+        <p>나의 원두 서재</p>
+        {!hasProducts && <p>서재에 담아둔 원두가 없습니다.</p>}
+        {hasProducts && (
+          <>
+            <ul>
+              {products &&
+                products.map((product) => (
+                  <CartItem key={product.id} product={product} />
+                ))}
+            </ul>
+          </>
+        )}
+      </section>
     </>
   );
 }
