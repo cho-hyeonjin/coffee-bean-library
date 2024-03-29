@@ -2,6 +2,19 @@
  &nbsp;  ↑  타이틀을 클릭해서 배포 사이트를 방문해주세요 ✨
 
  &nbsp;
+## 사용된 기술 스택
+
+<img src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/f374b4da-6437-41ec-908e-1aa921217cea" width="100px" />
+<img src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/fd8e30d2-40cd-414b-8361-e31cf1e11f00" width="100px" />
+<img src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/becf8382-1eb6-4347-aadf-6507d513c573" width="100px" />
+<img src="https://github.com/cho-hyeonjin/coffee-bean-library/assets/78816754/db35ffee-fda5-4bc7-bb4d-990c02ef111d" width="100px" />
+
+&nbsp;
+
+
+React Context API를 이용하여 상태관리를 구현하였고, 서버 상태관리는 Tanstack Query를 이용했습니다.
+
+DB, 배포, 로그인 인증은 Firebase를, CSS는 Tailwindcss를 이용하여 구현한 개인 프로젝트입니다.
 
 ### 반응형 CSS 적용
 
